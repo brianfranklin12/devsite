@@ -6,28 +6,31 @@ $accent-color: #E98A15;
 $secondary-accent-color: #856084;
 $grey-green: #A8B7AB;
 
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
   font-family: 'Archivo', sans-serif;
+  background-color: $background-color;
 }
 
 header {
-  background-color: $background-color;
   color: $text-color;
   display: grid;
   place-content: center;
   text-align: center;
-  height: 100vh;
   
     h1 {
-      font-size: 9vw;
+      font-size: clamp(2.25rem, 8vw, 8rem);
       font-weight: 600;
       letter-spacing: 0.1em;
       margin: 0;
     }
     h3 {
-      font-size: 4vw;
+      font-size: clamp(1.125rem, 4vw, 4rem);
       font-weight: 300;
       letter-spacing: 0.1em;
       margin: 1em 0;
@@ -36,4 +39,47 @@ header {
       text-decoration-thickness: .08em;
       text-underline-offset: .2em;
     }
-} 
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+  padding: 1rem;
+}
+
+footer {
+  padding: 0.5em;
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+    
+      i {
+        color: $accent-color;
+        font-size: 1.125rem;
+        margin-left: 0.75em;
+      }
+
+      @media only screen and (min-width: 600px) {
+        i {
+          font-size: 1.75rem;
+          margin: 1em;
+        }
+
+        @media only screen and (min-width: 1200px) {
+          i {
+            font-size: 2.5rem;
+          }
+        }
+      }
+
+      i:hover {
+        color: $secondary-accent-color;
+      }
+    }
+
+  }
+}
